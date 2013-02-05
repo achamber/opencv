@@ -1082,6 +1082,11 @@ __kernel
             descriptors_block[3] = sdyabs[0];
         }
     }
+    else
+    {
+        barrier(CLK_LOCAL_MEM_FENCE);
+        barrier(CLK_LOCAL_MEM_FENCE);
+    }
 }
 __kernel
     void compute_descriptors128(
@@ -1175,6 +1180,13 @@ __kernel
             descriptors_block[6] = sd2[0];
             descriptors_block[7] = sdabs2[0];
         }
+    }
+    else
+    {
+        barrier(CLK_LOCAL_MEM_FENCE);
+        barrier(CLK_LOCAL_MEM_FENCE);
+        barrier(CLK_LOCAL_MEM_FENCE);
+        barrier(CLK_LOCAL_MEM_FENCE);
     }
 }
 
